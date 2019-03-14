@@ -1,5 +1,4 @@
 <?php
-
   class Enqueue_scripts{
     public static function ajout_css_js(){
       wp_enqueue_style('fontawesome', get_template_directory_uri() . "/vendor/fontawesome-free/css/all.min.css");

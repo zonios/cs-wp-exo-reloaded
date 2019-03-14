@@ -1,19 +1,6 @@
 <?php
-  function ajout_css_js(){
-    wp_enqueue_style('fontawesome', get_template_directory_uri() . "/vendor/fontawesome-free/css/all.min.css");
-    wp_enqueue_style('merriweather-sans',"https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700");
-    wp_enqueue_style('merriweather',"https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic");
-    wp_enqueue_style('magnific-pop', get_template_directory_uri() . "/vendor/magnific-popup/magnific-popup.css");
-    wp_enqueue_style('creative-css', get_template_directory_uri() . "/css/creative.min.css");
 
-    wp_enqueue_script('jquery', get_template_directory_uri() . '/vendor/jquery/jquery.min.js', [], null, true);
-    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/vendor/bootstrap/js/bootstrap.bundle.min.js', [], null, true);
-    wp_enqueue_script('jquery-easing', get_template_directory_uri() . '/vendor/jquery-easing/jquery.easing.min.js', [], null, true );
-    wp_enqueue_script('magnific-popup', get_template_directory_uri() . '/vendor/magnific-popup/jquery.magnific-popup.min.js', [], null, true);
-    wp_enqueue_script('creative-js', get_template_directory_uri() . '/js/creative.min.js', [], null, true);
-  }
-  
-  add_action('wp_enqueue_scripts','ajout_css_js');
+  require_once(get_template_directory() . '/includes/enqueue-scripts.php');
 
   function register_main_menu(){
     register_nav_menu('main-menu', 'Menu principal dans le header.');
@@ -41,6 +28,7 @@
   
   // add_filter('nav_menu_link_attributes', 'ajout_menu_a_class', 10, 3);
 
+
   function ajout_image_article()
   {
     //Ajout de la fonctionnalité d'ajout d'image pour les posts pour ce thème ci
@@ -49,4 +37,32 @@
   }
   // Ajout d'un écouteur d'événement pour activer les images mise en avant pour les post (article)
   add_action('after_setup_theme', 'ajout_image_article');
+
+
+  function ajout_personnalisation_about($wp_customize){
+    $wp_customize->add_panel('panel-about',[
+      'title' => __('Section modif about'),
+      'description'=> __('Personnalitaion du la partie aboute')
+    ]);
+
+    $wp_customize->add_section('about-section-text',[
+      'panel' => 'panel-about',
+      'title' => __('Personnalisation du texte'),
+      'description' => __('Personnalisez le texte')
+    ]);
+
+    $wp_customize->add_setting('about-text',[
+      'type' => 'theme_mod',
+      'sanitize_callbalck' => 'sanitize_textarea_field'
+    ]);
+
+    $wp_customize->add_control('about-text-control',[
+      'section' => 'about-section-text',
+      'settings' => 'about-text',
+      'label' => __('Texte au about'),
+      'description' => __('Personnalisez le texte de la section about'),
+      'type' =>  'textarea'
+    ]);
+  }
+  add_action('customize_register', 'ajout_personnalisation_about');
 ?>

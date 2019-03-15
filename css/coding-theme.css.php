@@ -1,3 +1,6 @@
+<?php 
+  header("Content-type: text/css");
+?>
 .single-post-container {
   margin-top: 106px;
 }
@@ -19,7 +22,11 @@
 
 .page-banner h1 {
   font-size: 65px;
-  color: white;
+  color: black;
   background-color: #00000050;
   padding: 20px 40px;
 }
+
+.test-p {
+  color: <?php get_theme_mod('color-h1','#000000') ?>;
+} 

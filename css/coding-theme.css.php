@@ -1,5 +1,5 @@
-<?php 
-  header("Content-type: text/css");
+<?php
+header('content-type: text/css');
 ?>
 .single-post-container {
   margin-top: 106px;
@@ -26,7 +26,7 @@
   background-color: #00000050;
   padding: 20px 40px;
 }
-
-.test-p {
-  color: <?php get_theme_mod('color-h1','#000000') ?>;
+#test {
+  color: <?php get_theme_mod('color-h1','#000000')?>;
+  background-color: <?php  get_theme_mod('color-h1','#000000')?>;
 } 

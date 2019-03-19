@@ -5,7 +5,8 @@
         <div class="col-lg-8 text-center">
           <h2 class="text-white mt-0">We've got what you need!</h2>
           <hr class="divider light my-4">
-          <p class="text-white-50 mb-4"><?php echo get_theme_mod('about-text','this theme is good') ?></p>
+          <p class="text-white-50 mb-4"><?php echo get_theme_mod('about-text','this theme is good') ?>
+          <br><?php echo get_theme_mod('about-text2','this theme is good') ?></p>
           <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
         </div>
       </div>

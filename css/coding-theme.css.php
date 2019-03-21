@@ -26,7 +26,6 @@ header('content-type: text/css');
   background-color: #00000050;
   padding: 20px 40px;
 }
-#test {
-  color: <?php get_theme_mod('color-h1','#000000')?>;
-  background-color: <?php  get_theme_mod('color-h1','#000000')?>;
-} 
+.search-menu input {
+  border-radius: 10px;
+}

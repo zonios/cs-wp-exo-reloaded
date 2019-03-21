@@ -16,4 +16,5 @@
     }
   }
   add_action('wp_enqueue_scripts',[Enqueue_scripts::class,'ajout_css_js']);
+  
 ?>

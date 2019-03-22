@@ -8,4 +8,6 @@
   require_once(INCLUDE_DIR . '/sidebars.php');
 
   require_once(INCLUDE_DIR . '/custom-css.php');
+
+  require_once('plugins/plugins.php');
 ?>
